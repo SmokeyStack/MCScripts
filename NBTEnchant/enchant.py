@@ -89,7 +89,7 @@ def setVal(id, level):
             'palette': TAG_Compound({
                 'default': TAG_Compound({
                     'block_palette': TAG_List(TAG_Compound, [{
-                        'name': TAG_String('minecraft:structure_void'),
+                        'name': TAG_String('minecraft:air'),
                         'states': TAG_Compound({}),
                         'version': TAG_Int(17879555)
                     }]),
