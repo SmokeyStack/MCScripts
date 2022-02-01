@@ -1,0 +1,35 @@
+{
+    "structures": [
+        // You can create multiple structures at once
+        {
+            // You can enchant multiple items at once, in a single structure
+            "items": [
+                "minecraft:stone_sword",
+                "minecraft:iron_sword",
+                "minecraft:diamond_sword"
+            ],
+            "enchantments": [
+                {
+                    "enchantment": "flame",
+                    "level": 1
+                }
+            ]
+        },
+        {
+            "items": [
+                "minecraft:iron_axe"
+            ],
+            // you can add multiple enchants to a single items
+            "enchantments": [
+                {
+                    "enchantment": "sharpness",
+                    "level": 3
+                },
+                {
+                    // Level defaults to 1, if not specified
+                    "enchantment": "knockback"
+                }
+            ]
+        }
+    ]
+}
