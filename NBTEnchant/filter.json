@@ -1,0 +1,9 @@
+{
+    "filters": [
+        {
+            "runWith": "python",
+            "script": "./enchant.py",
+            "name": "Compiling Echo:NPC entities!"
+        }
+    ]
+}
