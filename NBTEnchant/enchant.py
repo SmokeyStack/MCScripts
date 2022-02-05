@@ -29,28 +29,7 @@ def setVal(id, level):
             ]),
             'entities': TAG_List(TAG_Compound, [{
                 'Age': TAG_Short(0),
-                'Chested': TAG_Byte(0),
-                'Color': TAG_Byte(0),
-                'Color2': TAG_Byte(0),
-                'FallDistance': TAG_Float(0.0),
-                'Fire': TAG_Short(0),
                 'Health': TAG_Short(5),
-                'Invulnerable': TAG_Byte(0),
-                'IsAngry': TAG_Byte(0),
-                'IsAutonomous': TAG_Byte(0),
-                'IsBaby': TAG_Byte(0),
-                'IsEating': TAG_Byte(0),
-                'IsGliding': TAG_Byte(0),
-                'IsGlobal': TAG_Byte(0),
-                'IsIllagerCaptain': TAG_Byte(0),
-                'IsOrphaned': TAG_Byte(0),
-                'IsOutOfControl': TAG_Byte(0),
-                'IsRoaring': TAG_Byte(0),
-                'IsScared': TAG_Byte(0),
-                'IsStunned': TAG_Byte(0),
-                'IsSwimming': TAG_Byte(0),
-                'IsTamed': TAG_Byte(0),
-                'IsTrusting': TAG_Byte(0),
                 'Item': TAG_Compound({
                     'Count': TAG_Byte(1),
                     'Damage': TAG_Short(0),
@@ -63,36 +42,16 @@ def setVal(id, level):
                         }])
                     })
                 }),
-                'LastDimensionId': TAG_Int(0),
-                'LootDropped': TAG_Byte(0),
-                'MarkVariant': TAG_Int(0),
-                'Motion': TAG_List(TAG_Float, [0.0, 0.0, 0.0]),
-                'OnGround': TAG_Byte(1),
                 'OwnerID': TAG_Long(-4294967295),
                 'OwnerNew': TAG_Long(-4294967295),
-                'PortalCooldown': TAG_Int(0),
                 'Pos': TAG_List(TAG_Float, [0.0, 1.0, 0.0]),
                 'Rotation': TAG_List(TAG_Float, [0.0, 0.0]),
-                'Saddled': TAG_Byte(0),
-                'Sheared': TAG_Byte(0),
-                'ShowBottom': TAG_Byte(0),
-                'Sitting': TAG_Byte(0),
-                'SkinID': TAG_Int(0),
-                'Strength': TAG_Int(0),
-                'StrengthMax': TAG_Int(0),
-                'Tags': TAG_List(TAG_Byte, []),
                 'UniqueID': TAG_Long(-12884901004),
-                'Variant': TAG_Int(0),
-                'definitions': TAG_List(TAG_Byte, []),
                 'identifier': TAG_String('minecraft:item')
             }]),
             'palette': TAG_Compound({
                 'default': TAG_Compound({
-                    'block_palette': TAG_List(TAG_Compound, [{
-                        'name': TAG_String('minecraft:air'),
-                        'states': TAG_Compound({}),
-                        'version': TAG_Int(17879555)
-                    }]),
+                    'block_palette': TAG_List(TAG_Byte, []),
                     'block_position_data': TAG_Compound({})
                 })
             })
