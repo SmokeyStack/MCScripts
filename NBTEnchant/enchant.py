@@ -55,17 +55,20 @@ def setVal(id, level, name):
     with open(f'{vanilla_name[id]}{level}.mcstructure', 'wb') as io:
         nbt.save(io, True)
 
-    os.mkdir("BP/structures")
-    dest = "BP/structures"
-    src = f'{vanilla_name[id]}{level}.mcstructure'
-    shutil.move(src, dest, copy_function=shutil.copytree)
+    if (os.path.isdir('../cache/filters/github.com/SmokeyStack/MCScripts/NBTEnchant')):
+        os.mkdir("BP/structures")
+        dest = "BP/structures"
+        src = f'{vanilla_name[id]}{level}.mcstructure'
+        shutil.move(src, dest, copy_function=shutil.copytree)
 
 def main():
     # Initialize parser
     parser = argparse.ArgumentParser()
 
-    f = open('../cache/filters/github.com/SmokeyStack/MCScripts/NBTEnchant/data/config.json')
-    config = json.load(f)
+    config = {}
+    enchant_id = 0
+    level_id = 0
+    name_id = 'string'
 
     # Adding optional argument
     parser.add_argument("-i", "--id", help = "Enchantment ID", required = False, default = 0)
@@ -75,9 +78,16 @@ def main():
     # Read arguments from command line
     args = parser.parse_args()
 
-    enchant_id = config['enchantments'][0]['enchantment']
-    level_id = config['enchantments'][0]['level']
-    name_id = config['name']
+    if (os.path.isdir('../cache/filters/github.com/SmokeyStack/MCScripts/NBTEnchant/data')):
+        f = open('../cache/filters/github.com/SmokeyStack/MCScripts/NBTEnchant/data/config.json')
+        config = json.load(f)
+        enchant_id = config['enchantments'][0]['enchantment']
+        level_id = config['enchantments'][0]['level']
+        name_id = config['name']
+    else:
+        enchant_id = int(args.id)
+        level_id = int(args.level)
+        name_id = args.name
     setVal(enchant_id, level_id, name_id)
 
 if __name__ == '__main__':

@@ -3,7 +3,7 @@
         {
             "runWith": "python",
             "script": "./enchant.py",
-            "name": "Compiling Echo:NPC entities!"
+            "name": "NBTEnchant by SmokeyStack"
         }
     ]
 }
