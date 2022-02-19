@@ -1,5 +1,5 @@
 from pynbt import NBTFile, TAG_Byte, TAG_Compound,TAG_Float, TAG_Int, TAG_List, TAG_Long, TAG_Short, TAG_String
-import argparse
+import argparse, os, shutil, json
 
 vanilla_name = ['protection_',  'fire_protection_',  'feather_falling_',  'blast_protection_',  'projectile_protection_',  'thorns_',  'respiration_',  'depth_strider_',  'aqua_affinity_',  'sharpness_',  'smite_',  'bane_of_arthropods_',  'knockback_',  'fire_aspect_',  'looting_',  'efficiency_',  'silk_touch_',  'unbreaking_',  'fortune_',  'power_',  'punch_',  'flame_',  'infinity_',  'luck_of_the_sea_',  'lure_',  'frost_walker_',  'mending_',  'binding_',  'vanishing_',  'impaling_',  'riptide_',  'loyalty_',  'channeling_',  'multishot_',  'piercing_',  'quick_charge_',  'soul_speed_']
 
@@ -55,14 +55,17 @@ def setVal(id, level, name):
     with open(f'{vanilla_name[id]}{level}.mcstructure', 'wb') as io:
         nbt.save(io, True)
 
-    # Prints the structure to the console
-    with open(f'{vanilla_name[id]}{level}.mcstructure', 'rb') as io:
-        nbt = NBTFile(io, '', '{}', True)
-        print(nbt.pretty())
+    os.mkdir("BP/structures")
+    dest = "BP/structures"
+    src = f'{vanilla_name[id]}{level}.mcstructure'
+    shutil.move(src, dest, copy_function=shutil.copytree)
 
 def main():
     # Initialize parser
     parser = argparse.ArgumentParser()
+
+    f = open('../cache/filters/github.com/SirLich/MCScripts/NBTEnchant/data/config.json')
+    config = json.load(f)
 
     # Adding optional argument
     parser.add_argument("-i", "--id", help = "Enchantment ID", required = False, default = 0)
@@ -72,9 +75,9 @@ def main():
     # Read arguments from command line
     args = parser.parse_args()
 
-    enchant_id = int(args.id)
-    level_id = int(args.level)
-    name_id = args.name
+    enchant_id = config['enchantments'][0]['enchantment']
+    level_id = config['enchantments'][0]['level']
+    name_id = config['name']
     setVal(enchant_id, level_id, name_id)
 
 if __name__ == '__main__':
