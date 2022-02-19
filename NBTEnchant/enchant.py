@@ -64,7 +64,7 @@ def main():
     # Initialize parser
     parser = argparse.ArgumentParser()
 
-    f = open('../cache/filters/github.com/SirLich/MCScripts/NBTEnchant/data/config.json')
+    f = open('../cache/filters/github.com/SmokeyStack/MCScripts/NBTEnchant/data/config.json')
     config = json.load(f)
 
     # Adding optional argument
