@@ -1,7 +1,29 @@
 import requests, zipfile, io, shutil, os
+from bs4 import BeautifulSoup
+
+print('start')
+
+headers = {"User-agent": 'YOUR-USER-AGENT'}
+
+URL = "https://www.minecraft.net/en-us/download/server/bedrock"
+page = requests.get(URL, headers=headers)
+if page.status_code == 200:
+    print('Success!')
+elif page.status_code == 404:
+    print('Not Found.')
+
+soup = BeautifulSoup(page.content, "html.parser")
+
+job_elements = soup.find_all("div", class_="check-to-proceed px-3")
+
+test = []
+for job_element in job_elements:
+    title_element = job_element.find("a", class_="btn btn-disabled-outline mt-4 downloadlink")
+    test.append(title_element["href"])
+testa = test[0]
 
 links = [
-    'https://minecraft.azureedge.net/bin-win/bedrock-server-1.18.2.03.zip',
+    testa,
     'https://aka.ms/behaviorpacktemplate',
     'https://aka.ms/resourcepacktemplate'
 ]  # Links to downloads

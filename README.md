@@ -16,3 +16,8 @@ This repo is used for various different tasks that relate to [Minecraft](https:/
 
 ## `vanilla_packs.py`
 - Script used to download the Vanilla Packs and BDS files
+- Setup
+	- Download the two files.
+	- Run `pip install -r requirements.txt`.
+	- Replace `YOUR-USER-AGENT` with your User Agent. You can find your User Agent [here](https://whatmyuseragent.com/)
+	- Run the script in a terminal.
