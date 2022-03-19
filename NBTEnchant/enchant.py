@@ -55,7 +55,7 @@ def setVal(id, level, name):
     with open(f'{vanilla_name[id]}{level}.mcstructure', 'wb') as io:
         nbt.save(io, True)
 
-    if (os.path.isdir('../cache/filters/github.com/SmokeyStack/MCScripts/NBTEnchant')):
+    if (os.path.isdir('../../.regolith/tmp')):
         os.mkdir("BP/structures")
         dest = "BP/structures"
         src = f'{vanilla_name[id]}{level}.mcstructure'
@@ -78,8 +78,8 @@ def main():
     # Read arguments from command line
     args = parser.parse_args()
 
-    if (os.path.isdir('../cache/filters/github.com/SmokeyStack/MCScripts/NBTEnchant/data')):
-        f = open('../cache/filters/github.com/SmokeyStack/MCScripts/NBTEnchant/data/config.json')
+    if (os.path.isdir('../../.regolith/tmp')):
+        f = open('data/NBTEnchant/config.json')
         config = json.load(f)
         enchant_id = config['enchantments'][0]['enchantment']
         level_id = config['enchantments'][0]['level']
