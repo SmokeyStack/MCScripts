@@ -1,9 +1,10 @@
 {
-    "filters": [
-        {
-            "runWith": "python",
-            "script": "./enchant.py",
-            "name": "NBTEnchant by SmokeyStack"
-        }
-    ]
+	"filters": [
+		{
+			"name": "NBTEnchant by SmokeyStack",
+			"runWith": "python",
+			"script": "./enchant.py",
+			"arguments": ["--regolith"]
+		}
+	]
 }
