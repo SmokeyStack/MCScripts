@@ -15,6 +15,17 @@
                     "level": 3
                 }
             ]
+        },
+        {
+            "name": "YourStructureName2",
+            "items": [
+                "minecraft:stone_sword"
+            ],
+            "enchantments": [
+                {
+                    "enchantment": "flame"
+                }
+            ]
         }
     ]
 }

@@ -58,36 +58,41 @@ def main():
         f = open('data/NBTEnchant/config.json')
         config = json.load(f)
 
-        name = config['structures'][0]['name']
-        for a in config['structures'][0]['items']:
-            id_list.append(a)
+        for a in range(len(config['structures'])):
+            id_list = []
+            ench_list = []
+            item_list = []
+            name = config['structures'][a]['name']
+            for b in config['structures'][a]['items']:
+                id_list.append(b)
 
-        for a in config['structures'][0]['enchantments']:
-            if(len(a)==1):
-                ench_list.append({'id': TAG_Short(checkEnch(a['enchantment'])), 'lvl': TAG_Short(1)})
-            else:
-                ench_list.append({'id': TAG_Short(checkEnch(a['enchantment'])), 'lvl': TAG_Short(a['level'])})
-        
-        for a in range(len(id_list)):
-            item_list.append({
-                    'Age': TAG_Short(0),
-                    'Health': TAG_Short(5),
-                    'Item': TAG_Compound({
-                        'Count': TAG_Byte(1),
-                        'Damage': TAG_Short(0),
-                        'Name': TAG_String(id_list[a]),
-                        'WasPickedUp': TAG_Byte(0),
-                        'tag': TAG_Compound({
-                            'ench': TAG_List(TAG_Compound, ench_list)
-                        })
-                    }),
-                    'OwnerID': TAG_Long(-4294967295),
-                    'OwnerNew': TAG_Long(-4294967295),
-                    'Pos': TAG_List(TAG_Float, [0.0, 1.0, 0.0]),
-                    'Rotation': TAG_List(TAG_Float, [0.0, 0.0]),
-                    'UniqueID': TAG_Long(random.randint(-10000000,10000000)),
-                    'identifier': TAG_String('minecraft:item')
-            })
+            for b in config['structures'][a]['enchantments']:
+                if(len(b)==1):
+                    ench_list.append({'id': TAG_Short(checkEnch(b['enchantment'])), 'lvl': TAG_Short(1)})
+                else:
+                    ench_list.append({'id': TAG_Short(checkEnch(b['enchantment'])), 'lvl': TAG_Short(b['level'])})
+
+            for a in range(len(id_list)):
+                item_list.append({
+                        'Age': TAG_Short(0),
+                        'Health': TAG_Short(5),
+                        'Item': TAG_Compound({
+                            'Count': TAG_Byte(1),
+                            'Damage': TAG_Short(0),
+                            'Name': TAG_String(id_list[a]),
+                            'WasPickedUp': TAG_Byte(0),
+                            'tag': TAG_Compound({
+                                'ench': TAG_List(TAG_Compound, ench_list)
+                            })
+                        }),
+                        'OwnerID': TAG_Long(-4294967295),
+                        'OwnerNew': TAG_Long(-4294967295),
+                        'Pos': TAG_List(TAG_Float, [0.0, 1.0, 0.0]),
+                        'Rotation': TAG_List(TAG_Float, [0.0, 0.0]),
+                        'UniqueID': TAG_Long(random.randint(-10000000,10000000)),
+                        'identifier': TAG_String('minecraft:item')
+                })
+            setVal(name, item_list)
     else:
         name = str(vanilla_name[int(args.id)]) + '_' + str(int(args.level))
         item_list.append({
@@ -112,7 +117,7 @@ def main():
             'UniqueID': TAG_Long(random.randint(-10000000,10000000)),
             'identifier': TAG_String('minecraft:item')
         })
-    setVal(name, item_list)
+        setVal(name, item_list)
 
 if __name__ == '__main__':
     main()
