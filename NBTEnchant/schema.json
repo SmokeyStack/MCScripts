@@ -1,74 +1,98 @@
 {
-    "$id": "nbt-enchant",
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "definitions": {
+    "$id": "nbt-enchant",
+    "$comment": "Thank you SirLich! :D",
+    "properties": {
         "structures": {
             "type": "array",
             "description": "The list of structures you want to create. Every structure contain many enchanted items.",
             "items": {
+                "title": "Items",
                 "type": "object",
-                "description": "The configuration for a single structure.",
+                "required": [
+                    "name",
+                    "items",
+                    "enchantments"
+                ],
                 "properties": {
+                    "name": {
+                        "title": "Name",
+                        "description": "The name of this structure.",
+                        "type": "string",
+                        "default": "YourStructureName"
+                    },
                     "items": {
-                        "type": "array",
+                        "title": "Items",
                         "description": "The list of items that will be created in this structure.",
+                        "type": "array",
                         "items": {
-                            "type": "string",
-                            "description": "An item name, such as 'minecraft:stone_shovel'"
+                            "title": "Items",
+                            "description": "An item name, such as 'minecraft:stone_shovel'",
+                            "type": "string"
                         }
                     },
                     "enchantments": {
-                        "type": "object",
+                        "title": "Enchantments",
                         "description": "The enchantment-configurations that will be applied to the items in this structure.",
-                        "properties": {
-                            "enchantment": {
-                                "type": "string",
-                                "description": "The enchantment name, such as 'protection'",
-                                "examples": [
-                                    "protection",
-                                    "fire_protection",
-                                    "feather_falling",
-                                    "blast_protection",
-                                    "projectile_protection",
-                                    "thorns",
-                                    "respiration",
-                                    "depth_strider",
-                                    "aqua_affinity",
-                                    "sharpness",
-                                    "smite",
-                                    "bane_of_arthropods",
-                                    "knockback",
-                                    "fire_aspect",
-                                    "looting",
-                                    "efficiency",
-                                    "silk_touch",
-                                    "unbreaking",
-                                    "fortune",
-                                    "power",
-                                    "punch",
-                                    "flame",
-                                    "infinity",
-                                    "luck_of_the_sea",
-                                    "lure",
-                                    "frost_walker",
-                                    "mending",
-                                    "binding",
-                                    "vanishing",
-                                    "impaling",
-                                    "riptide",
-                                    "loyalty",
-                                    "channeling",
-                                    "multishot",
-                                    "piercing",
-                                    "quick_charge",
-                                    "soul_speed"
-                                ]
-                            },
-                            "level": {
-                                "type": "integer",
-                                "description": "The integer value of the enchantment that will be applied.",
-                                "default": 1,
-                                "minimum": 0
+                        "type": "array",
+                        "items": {
+                            "title": "Items",
+                            "type": "object",
+                            "required": [
+                                "enchantment"
+                            ],
+                            "properties": {
+                                "enchantment": {
+                                    "title": "Enchantment",
+                                    "description": "The enchantment name, such as 'protection'",
+                                    "type": "string",
+                                    "examples": [
+                                        "protection",
+                                        "fire_protection",
+                                        "feather_falling",
+                                        "blast_protection",
+                                        "projectile_protection",
+                                        "thorns",
+                                        "respiration",
+                                        "depth_strider",
+                                        "aqua_affinity",
+                                        "sharpness",
+                                        "smite",
+                                        "bane_of_arthropods",
+                                        "knockback",
+                                        "fire_aspect",
+                                        "looting",
+                                        "efficiency",
+                                        "silk_touch",
+                                        "unbreaking",
+                                        "fortune",
+                                        "power",
+                                        "punch",
+                                        "flame",
+                                        "infinity",
+                                        "luck_of_the_sea",
+                                        "lure",
+                                        "frost_walker",
+                                        "mending",
+                                        "binding",
+                                        "vanishing",
+                                        "impaling",
+                                        "riptide",
+                                        "loyalty",
+                                        "channeling",
+                                        "multishot",
+                                        "piercing",
+                                        "quick_charge",
+                                        "soul_speed"
+                                    ]
+                                },
+                                "level": {
+                                    "title": "Level",
+                                    "description": "The integer value of the enchantment that will be applied.",
+                                    "type": "integer",
+                                    "default": 1,
+                                    "minimum": 0
+                                }
                             }
                         }
                     }
