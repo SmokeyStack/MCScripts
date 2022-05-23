@@ -1,4 +1,5 @@
 {
+	"description": "This script is used to generate .mcstructure files containing edited nbt data that is currently not possible to do ingame",
 	"filters": [
 		{
 			"name": "NBTEnchant by SmokeyStack",
